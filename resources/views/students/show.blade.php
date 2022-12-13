@@ -16,6 +16,11 @@
     <h2>{{$student->phone}}</h2>
     <h2>{{$student->project}}</h2>
     <a href="{{route('students.index')}}">Back to students</a>
+    {{-- delete --}}
+    <form method="POST" action="{{route('students.destroy', $student)}}">
+        @csrf
+        <button type="submit">Delete</button>
+    </form>    
 
 
 </body>

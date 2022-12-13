@@ -9,7 +9,12 @@
 <body>
     {{-- $students -masyvas --}}
 
-    <a href="{{route('students.create')}}">Create new student</a>
+    {{-- <a href="{{route('students.create')}}">Create new student</a> --}}
+    
+    {{-- Studento sukurimo formos --}}
+  
+        @extends('students.create')
+   
     <table>
         <tr>
             <th>Id</th>
@@ -24,7 +29,7 @@
         @foreach ($students as $student)
             <tr>
                 <td>{{$student->id}}</td>
-                <td>{{$student->name}}</td>
+                <td><a href="{{route('students.show', $student)}}">{{$student->name}}</a></td>
                 <td>{{$student->surname}}</td>
                 <td>{{$student->email}}</td>
                 <td>{{$student->phone}}</td>
@@ -35,7 +40,7 @@
                         <button type="submit">Delete</button>
                     </form>
                     <a href="{{route('students.edit', $student)}}">Edit</a>
-                    <a href="{{route('students.show', $student)}}">Show</a>
+                    
 
                 </td>
             </tr>
@@ -43,5 +48,10 @@
 
 
     </table>
+    
+    <form method="POST" action="{{route('students.deleteall')}}">
+        @csrf
+        <button type="submit">Delete all</button>
+    </form>    
 </body>
 </html>

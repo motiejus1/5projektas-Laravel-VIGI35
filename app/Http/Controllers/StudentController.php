@@ -126,4 +126,44 @@ class StudentController extends Controller
         $student->delete();
         return redirect()->route('students.index');
     }
+
+    //savo metodu ir vaizdu kurimas
+
+    //Mygtukas istrinti visus studentus(custom veiksmo metoda)
+    //Mygtukas kuris kitame puslapyje atvaizduoja visas studentu tematikas(custom vaizdo metodas)
+
+    //MEtodas atsakingas uz vaizda
+    //Metodas atsakingas uz veiksma x
+    //Pagalbininis metodas(metodas kuris tiesiog naudojamas kitam metode)
+
+   //Jeigu custom metodas atlieka veiksma, jis route faile turi buti aprasytas su post metodu
+   //Jeigu custom metodas atsakingas uz vaizda, jis route faile turi buti aprasytas su getMetodu
+   
+   //Custom metodus galime naudoti ir formose, ir nuorodose     
+
+    public function deleteAll() {
+        //duoti nurodyma modeliui isvalyti duombazes lentele Students(geresnis)
+        Student::truncate(); //isvalyti duomenu bazes lentele
+        return redirect()->route('students.index');
+
+        //
+        // gauti visa studentu sarasa ir su ciklu kiekviena individualiai istrinti(geresnis jei norime plesti funkcionaluma iki multiple delete)        
+    }
+
+    public function projectList() {
+
+        //gauti visus studentus
+        //gauti visus unikalias projektus
+        //sukurti masyva, kurio elementai yra projekto vardas
+        
+
+        $students = Student::all();
+        $projects = [];
+
+        foreach($students as $student) {
+            $projects[] = $student->project;
+        }
+
+        return view('students.projectlist',['projects' => $projects]);        
+    }
 }

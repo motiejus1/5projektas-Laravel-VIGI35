@@ -23,6 +23,7 @@ Route::get('/students/index',[StudentController::class, 'index'])->name('student
 Route::get('/students/create',[StudentController::class, 'create'])->name('students.create');
 Route::get('/students/edit/{student}',[StudentController::class, 'edit'])->name('students.edit');
 Route::get('/students/show/{student}',[StudentController::class, 'show'])->name('students.show');
+Route::get('/students/projectlist',[StudentController::class, 'projectList'])->name('students.projectlist');
 
 //Atsakingi uz duomenu apdorojima
 //store - issaugoti nauja studenta
@@ -33,6 +34,9 @@ Route::post('/students/store',[StudentController::class, 'store'])->name('studen
 // {student} - per nuoroda studenta
 Route::post('/students/destroy/{student}',[StudentController::class, 'destroy'])->name('students.destroy');
 Route::post('/students/update/{student}',[StudentController::class, 'update'])->name('students.update');
+
+//Custom metodas
+Route::post('/students/deleteall',[StudentController::class, 'deleteAll'])->name('students.deleteall');
 
 
 

@@ -35,6 +35,7 @@
                         <button type="submit">Delete</button>
                     </form>
                     <a href="{{route('students.edit', $student)}}">Edit</a>
+                    <a href="{{route('students.show', $student)}}">Show</a>
 
                 </td>
             </tr>

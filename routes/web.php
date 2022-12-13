@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('/students/index',[StudentController::class, 'index'])->name('students.index');
 Route::get('/students/create',[StudentController::class, 'create'])->name('students.create');
 Route::get('/students/edit/{student}',[StudentController::class, 'edit'])->name('students.edit');
+Route::get('/students/show/{student}',[StudentController::class, 'show'])->name('students.show');
 
 //Atsakingi uz duomenu apdorojima
 //store - issaugoti nauja studenta
